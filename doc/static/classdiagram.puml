@@ -1,0 +1,86 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+!pragma layout smetana
+
+class Main{
+{static}+ static void main(String [] args)
+}
+
+class CPHFitness{
+- User currentUser
+- TrainingPlansList trainingPlansList
+- ChallengesList challengesList
+- Leaderboard leaderboard
++ RegisterUser()
+
+}
+
+class User{
++ User (String, int, int, int, String)
+- String username
+- int age
+- int height
+- int weight
+- String password
++ ViewRunningLog()
+}
+
+class Run{
++ Run(int, int, int, int, float)
++ Run(int, int, int, float)
+- int hours
+- int minutes
+- int seconds
+- int date
+- float distance
+}
+
+class ChallengesList{
+- ArrayList <Challenge> challengesList
+}
+
+class TrainingPlansList{
+- ArrayList <TrainingPlan> trainingPlansList
+}
+
+class RunningLog{
+- ArrayList <Run> runningLog
+}
+
+class Goal {
+
+}
+
+class Challenge {
+
+}
+
+class TrainingPlan {
+
+}
+
+class Leaderboard{
+
+}
+
+Main *--CPHFitness
+CPHFitness *-- User : has-a
+CPHFitness *-- Leaderboard : has-a
+CPHFitness *-- ChallengesList
+CPHFitness *-- TrainingPlansList
+
+ChallengesList *-- Challenge
+TrainingPlansList *-- TrainingPlan
+
+User *-- Goal
+User *-- Challenge
+User *-- TrainingPlan
+User *-- RunningLog
+
+RunningLog *-- Run
+Challenge *-- Run
+TrainingPlan *-- Run
+
+Leaderboard *-- User
+
+@enduml
