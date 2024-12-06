@@ -4,6 +4,7 @@
 
 class Main{
 {static}+ static void main(String [] args)
+- CPHFitness cphFitness
 }
 
 class CPHFitness{
@@ -11,18 +12,22 @@ class CPHFitness{
 - TrainingPlansList trainingPlansList
 - ChallengesList challengesList
 - Leaderboard leaderboard
-+ RegisterUser()
++ startMenu()
++ registerUser()
++ mainMenu()
++ login()
+
 
 }
 
 class User{
-+ User (String, int, int, int, String)
++ User (String, String, int, int, int)
 - String username
+- String password
 - int age
 - int height
 - int weight
-- String password
-+ ViewRunningLog()
++ void viewRunningLog()
 }
 
 class Run{
@@ -60,6 +65,7 @@ class TrainingPlan {
 }
 
 class Leaderboard{
+showLeaderboard()
 
 }
 
@@ -81,6 +87,6 @@ RunningLog *-- Run
 Challenge *-- Run
 TrainingPlan *-- Run
 
-Leaderboard *-- User
+
 
 @enduml
