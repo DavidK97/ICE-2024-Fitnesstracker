@@ -27,6 +27,7 @@ class User{
 - int age
 - int height
 - int weight
+- ArrayList <Run> runningLog
 + void viewRunningLog()
 }
 
@@ -36,8 +37,8 @@ class Run{
 - int hours
 - int minutes
 - int seconds
-- int date
 - float distance
+- int date
 }
 
 class ChallengesList{
@@ -46,10 +47,6 @@ class ChallengesList{
 
 class TrainingPlansList{
 - ArrayList <TrainingPlan> trainingPlansList
-}
-
-class RunningLog{
-- ArrayList <Run> runningLog
 }
 
 class Goal {
@@ -81,12 +78,8 @@ TrainingPlansList *-- TrainingPlan
 User *-- Goal
 User *-- Challenge
 User *-- TrainingPlan
-User *-- RunningLog
-
-RunningLog *-- Run
+User *-- Run
 Challenge *-- Run
 TrainingPlan *-- Run
-
-
 
 @enduml

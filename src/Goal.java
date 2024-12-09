@@ -1,10 +1,18 @@
 public class Goal {
-    public Goal (){
+
+    float distanceInKm;
+
+    float distanceProgress;
+
+
+    public Goal (float distanceInKm, float distanceProgress){
+        this.distanceInKm = distanceInKm;
+        this.distanceProgress = distanceProgress;
         //Hvad skal er goal være? vægt? km-mål?
     }
 
-    public static void viewGoals(){
-
+    public String toString(){
+        return distanceProgress + " km out of " + distanceInKm + " km";
     }
 
 }
