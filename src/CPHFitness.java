@@ -48,21 +48,25 @@ public class CPHFitness {
                 String date = ui.promptText("Enter the date of the run: dd/mm/yy: ");
                 float distance = ui.promptNumeric("Enter the distance in meters:");
                 Run run = new Run(hours, minutes, seconds, distance, date);
+                System.out.println("You just added the run " + run + " to your running log. Good work!");
                 currentUser.getRunningLog().add(run);
                 mainMenu();
             case 2:
                 createGoal();
                 mainMenu();
             case 3:
+                System.out.println("List of previous runs: ");
                 currentUser.viewRunningLog();
                 mainMenu();
             case 4:
                 //currentUser.viewTrainingPlanList;   // Metode findes ikke endnu
                 mainMenu();
             case 5:
+                System.out.println("Current challenges: ");
                 ChallengesList.viewChallenge();
                 mainMenu();
             case 6:
+                System.out.println("Current goals: ");
                 currentUser.viewGoalLog();
                 mainMenu();
             case 7:
@@ -81,17 +85,25 @@ public class CPHFitness {
                 "3) Add timed non-distance based goal (e.g 30 minutes) \n " +
                 "4) Exit program");
 
-
-
         switch(choice){
             case 1:
                 float goal1 = ui.promptNumeric("Enter distance in kilometers:");
                 currentUser.addGoal(new Goal(goal1, 0));
+                System.out.println("You just added : " + goal1 + " to your goals. Good luck!");
                 break;
             case 2:
-            //    float goal2 = ui. ;
+                float goal2Meters = ui.promptNumeric("Enter distance in meters:");
+                float goal2Time = ui.promptNumeric("Enter time: ");
+                currentUser.addGoal(new Goal(goal2Meters, goal2Time));
+                System.out.println("You just added: " + goal2Meters + goal2Time + " to your goals. Good luck!");
+                break;
+            case 3:
+                int goal3 = ui.promptNumeric("Enter time in minutes: ");
+                currentUser.addGoal(new Goal(goal3, 0));
+                System.out.println("You just added : " + goal3 + " to your goals. Good luck!");
+                break;
             default:
-                System.out.println("Invalid number");
+                System.out.println("Invalid number. Please try again.");
                 createGoal();
         }
     }
